@@ -1,7 +1,10 @@
 artifacts_root : "artifacts"
 
 Data_Ingestion:
+  root_dir : "artifacts/data_ingestion/"
   text_path : "artifacts/data_ingestion/raw_text/"
+  token_path : "artifacts/data_ingestion/tokens/"
+  embedded_vectors_path : "artifacts/data_ingestion/embedded_vectors/"
   
 
 Data_Transformation:

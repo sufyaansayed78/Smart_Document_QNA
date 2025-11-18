@@ -1,7 +1,7 @@
 import logging 
 import os 
 from pathlib import Path
-logging.basicConfig(level=logging.INFO , format="[%(asctime)s]:%(message)s:")
+
 
 list_of_files=[
     f"src/__init__.py",
