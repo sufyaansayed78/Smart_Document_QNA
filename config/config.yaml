@@ -1,0 +1,9 @@
+artifacts_root : "artifacts"
+
+Data_Ingestion:
+  text_path : "artifacts/data_ingestion/raw_text/"
+  
+
+Data_Transformation:
+  transformed_data_path: "artifacts/tokens/"
+
