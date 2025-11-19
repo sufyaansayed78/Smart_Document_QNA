@@ -19,17 +19,16 @@ def extract_text_from_pdf( self,pdf : IO[bytes]) -> str :
 
         reader = PdfReader(pdf)
         text = ""
-
+        
         for page in reader.pages:
             content = page.extract_text()
             if content:
                 text += content
-
+        create_directories([os.path.dirname(self.config.text_path)])
         save_text(self.config.text_path, text)
 
-def chunk_text(self, text: str, chunk_size: int = 500, overlap: int = 50) -> list:
+def chunk_text(self, text: str, chunk_size: int = 300, overlap: int = 50) -> list:
         from nltk.tokenize import word_tokenize
-
         words = word_tokenize(text)
         chunks = []
         start = 0
@@ -41,6 +40,8 @@ def chunk_text(self, text: str, chunk_size: int = 500, overlap: int = 50) -> lis
             chunks.append(chunk)
             start += chunk_size - overlap
         df = pd.DataFrame(chunks, columns=['chunks'])
+        create_directories([os.path.dirname(self.config.token_path)])
+
         df.to_csv(self.config.token_path, index=False)
 
         

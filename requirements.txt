@@ -14,6 +14,7 @@ tqdm
 sentence-transformers
 faiss-cpu
 transformers
+chromadb
 
 
 
