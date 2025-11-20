@@ -11,3 +11,4 @@ class DataTransformationConfig:
   root_dir : str
   chunks_path : str
   embedded_vectors_path : str
+  query : str
