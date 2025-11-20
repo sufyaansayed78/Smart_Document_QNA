@@ -20,17 +20,21 @@ class DataTransformation:
 
     def store_to_vector(self):
         client = chromadb.Client()
-        collection = client.create_collection(name="PDF DATA")
+        collection = client.create_collection(name="PDF DATA",embedding_function=None,metadata={
+        "hnsw:space": "cosine",
+        "hnsw:M": 32,
+        "hnsw:efConstruction": 200,
+        "hnsw:ef": 20
+        })
         df = pd.read_csv(self.config.embedded_vectors_path)
         nparr = df.to_numpy()
         collection.add(
             embeddings = nparr.tolist(),
-            metadatas = [{"source": "pdf_data"} for _ in range(len(nparr))],
             ids = [str(i) for i in range(len(nparr))]
         )
 
 
-
+    
 
 
 

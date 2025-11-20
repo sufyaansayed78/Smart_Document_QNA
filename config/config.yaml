@@ -10,6 +10,6 @@ Data_Ingestion:
 Data_Transformation:
   root_dir : "artifacts/data_transformation/"
   chunks_path : "artifacts/data_ingestion/tokens/tokens.csv"
-  embedded_vectors_path : "artifacts/data_transformation/embedded_vectors_db/"
+  embedded_vectors_path : "vector_db"
   
 
