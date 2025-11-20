@@ -11,5 +11,10 @@ Data_Transformation:
   root_dir : "artifacts/data_transformation/"
   chunks_path : "artifacts/data_ingestion/tokens/tokens.csv"
   embedded_vectors_path : "artifacts/data_transformation/embedded_vectors/vectors.csv"
-  
+  embedded_query_path : "artifacts/data_transformation/embedded_query/query_arr.npy"
 
+
+Retrieve_Vectors:
+  root_dir : "artifacts/retrieve_vectors/"
+  embedded_query_path : "artifacts/data_transformation/embedded_query/query_arr.npy"
+  similar_vectors_path : "artifacts/retrieve_vectors/similar_vectors/similar_vectors.npy"

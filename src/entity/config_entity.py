@@ -11,3 +11,10 @@ class DataTransformationConfig:
   root_dir : str
   chunks_path : str
   embedded_vectors_path : str
+  embedded_query_path : str
+
+@dataclass
+class RetrieveVectorsConfig:
+  root_dir : str
+  embedded_query_path : str
+  

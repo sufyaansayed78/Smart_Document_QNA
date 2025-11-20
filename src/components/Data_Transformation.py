@@ -5,6 +5,7 @@ import os
 import pandas as pd
 import numpy as np
 import chromadb
+from src import logger
 class DataTransformation:
     def __init__(self,config : DataTransformationConfig):
         self.config = config
@@ -21,7 +22,7 @@ class DataTransformation:
 
     def store_to_vector_db(self):
         client = chromadb.Client()
-        collection = client.create_collection(name="PDF DATA",embedding_function=None,metadata={
+        collection = client.create_collection(name="PDF_DATA",embedding_function=None,metadata={
         "hnsw:space": "cosine",
         "hnsw:M": 32,
         "hnsw:efConstruction": 200,
@@ -37,8 +38,8 @@ class DataTransformation:
     def question_to_query(self):
         query_embedding = self.model.encode([self.config.query])
         query_embedding = query_embedding / np.linalg.norm(query_embedding, axis=1, keepdims=True)
-        return query_embedding
-
+        np.save(self.config.embedded_query_path, query_embedding)
+        logger.info(f"Embedded query saved at {self.config.embedded_query_path}")
 
     
 
