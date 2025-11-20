@@ -8,7 +8,7 @@ class ConfigurationManager:
         create_directories([config.artifacts_root])
         pass
 
-    def get_data_ingestion_config(self,query) -> DataIngestionConfig:
+    def get_data_ingestion_config(self) -> DataIngestionConfig:
         config = read_yaml("config\config.yaml")
         data_ingestion_config = config.Data_Ingestion
 
@@ -20,7 +20,6 @@ class ConfigurationManager:
             text_path = data_ingestion_config.text_path,
             token_path = data_ingestion_config.token_path,
             embedded_vectors_path = data_ingestion_config.embedded_vectors_path
-            query = query
         )
 
         return data_ingestion_config
