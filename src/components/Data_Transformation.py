@@ -19,7 +19,7 @@ class DataTransformation:
         create_directories([os.path.dirname(self.config.embedded_vectors_path)])
         pd.DataFrame(embeddings).to_csv(self.config.embedded_vectors_path, index=False)
 
-    def store_pdf_to_vector(self):
+    def store_to_vector_db(self):
         client = chromadb.Client()
         collection = client.create_collection(name="PDF DATA",embedding_function=None,metadata={
         "hnsw:space": "cosine",

@@ -6,9 +6,8 @@ from src import logger
 
 
 class DataIngestionPipeline():
-    def __init__(self):
-        self.config = ConfigurationManager()
-        self.data_ingestion_config = self.config.get_data_ingestion_config()
+    def __init__(self,config : DataIngestionConfig):
+        self.data_ingestion_config = config
 
     def initiate_data_ingestion(self, pdf : IO[bytes] ):
         logger.info("Starting data ingestion process")
